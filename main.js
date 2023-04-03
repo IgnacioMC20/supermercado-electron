@@ -1,5 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path');
+const { loginFunction, getProducts } = require('./scripts/sequelize');
+
 
 // * ventanas
 
@@ -53,13 +55,26 @@ const createWindowEdit = () => {
 
 
 // * metodos
-ipcMain.on('registroValido', (event, args) => {
+ipcMain.on('login', async(event, args) => {
   console.log({args})
-  createWindowWelcome()
-  productList.webContents.on('did-finish-load', () => {
-    productList.webContents.send('inicioCorrecto', args)
-  })
-})
+  const user = await loginFunction(args.employeeId, args.password)
+  // console.log(user)
+  if(!user){
+    // login.webContents.send('show-alert', 'Usuario o contraseña incorrectos');
+    console.log('usuario o contraseña incorrectos')
+    return
+  }
+
+  // obtener productos de la base de datos
+  // const products = await getProducts()
+
+  login.close()
+  createWindowProductList()
+
+  // productList.webContents.on('did-finish-load', () => {
+  //   productList.webContents.send('load-products', products);
+  // });
+});
 
 
 app.whenReady().then(createWindow)
