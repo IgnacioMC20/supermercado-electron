@@ -9,10 +9,10 @@ const createWindow = () => {
     width: 600,
     height: 600,
     webPreferences: {
-      preload: path.join(app.getAppPath(), 'preload.js')
+      preload: path.join(app.getAppPath(), './scripts/preload.js')
     }
   })
-  login.loadFile('login.html')
+  login.loadFile('./pages/login.html')
 }
 
 let productList;
@@ -21,10 +21,10 @@ const createWindowProductList = () => {
     width: 600,
     height: 600,
     webPreferences: {
-      preload: path.join(app.getAppPath(), 'preload.js')
+      preload: path.join(app.getAppPath(), './scripts/preload.js')
     }
   })
-  productList.loadFile('product-list.html')
+  productList.loadFile('./pages/product-list.html')
 }
 
 let pedidos;
@@ -33,10 +33,10 @@ const createWindowPedidos = () => {
     width: 600,
     height: 600,
     webPreferences: {
-      preload: path.join(app.getAppPath(), 'preload.js')
+      preload: path.join(app.getAppPath(), './scripts/preload.js')
     }
   })
-  pedidos.loadFile('pedidos.html')
+  pedidos.loadFile('./pages/pedidos.html')
 }
 
 let edicion;
@@ -45,10 +45,10 @@ const createWindowEdit = () => {
     width: 600,
     height: 600,
     webPreferences: {
-      preload: path.join(app.getAppPath(), 'preload.js')
+      preload: path.join(app.getAppPath(), './scripts/preload.js')
     }
   })
-  edicion.loadFile('edit.html')
+  edicion.loadFile('./pages/edit.html')
 }
 
 
