@@ -12,7 +12,7 @@ const createWindow = () => {
       preload: path.join(app.getAppPath(), 'preload.js')
     }
   })
-  login.loadFile('index.html')
+  login.loadFile('login.html')
 }
 
 let productList;
